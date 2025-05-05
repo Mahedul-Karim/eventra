@@ -7,8 +7,8 @@ import MobileNav from "../nav/MobileNav";
 
 const Header = () => {
   return (
-    <header>
-      <Container className="py-3 flex items-center justify-between">
+    <header className="fixed z-[2] w-full top-10" >
+      <Container className="py-2 flex items-center justify-between bg-white px-4 rounded-full">
         <Logo />
         <Nav className="hidden md:block" />
         <NavActions className="hidden md:flex" />

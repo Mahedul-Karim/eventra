@@ -38,7 +38,8 @@ const NavActions = ({ className = "", closeOnClick = false }) => {
           <SheetCloseWrapper clickOnClose={closeOnClick}>
             <Button
               variant="outline"
-              className="border-error font-semibold text-error hover:bg-error hover:text-white grow"
+              className="border-error font-semibold text-error hover:bg-error hover:text-white grow rounded-md md:rounded-full px-5"
+              size="sm"
             >
               Log Out
             </Button>
@@ -48,7 +49,8 @@ const NavActions = ({ className = "", closeOnClick = false }) => {
         <SheetCloseWrapper clickOnClose={closeOnClick}>
           <Button
             variant="outline"
-            className={"font-semibold hover:bg-primary hover:text-white w-full"}
+            className={"font-semibold hover:bg-primary hover:text-white w-full rounded-md md:rounded-full px-5"}
+            size={'sm'}
           >
             Log In
           </Button>

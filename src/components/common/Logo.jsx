@@ -9,9 +9,9 @@ const Logo = ({ closeOnClick = false }) => {
         <img
           src="/assets/logo.png"
           alt=""
-          className="size-6 xs:size-8 md:size-10"
+          className="size-6 xs:size-7"
         />
-        <p className="xs:text-lg md:text-xl font-bold text-primary">Eventra</p>
+        <p className="xs:text-lg  font-bold text-primary">Eventra</p>
       </Link>
     </SheetCloseWrapper>
   );
