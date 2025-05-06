@@ -9,7 +9,7 @@ const Footer = () => {
       <Container className="grid md:grid-cols-3 gap-4 md:gap-2 md:justify-items-center">
         <div className="flex flex-col gap-4">
           <Logo />
-          <p className="text-muted">
+          <p className="text-muted text-sm xs:text-base">
             Connecting people through extraordinary
             <br /> experiences. Discover events that inspire, educate, and
             entertain.

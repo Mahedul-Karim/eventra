@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { useStore } from "@/context/Context";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import {
   Tooltip,
   TooltipContent,
@@ -13,6 +13,8 @@ import SheetCloseWrapper from "./SheetCloseWrapper";
 
 const NavActions = ({ className = "", closeOnClick = false }) => {
   const { user } = useStore();
+
+  const navigate = useNavigate();
 
   return (
     <div className={`flex items-center gap-4 ${className}`}>
@@ -49,8 +51,11 @@ const NavActions = ({ className = "", closeOnClick = false }) => {
         <SheetCloseWrapper clickOnClose={closeOnClick}>
           <Button
             variant="outline"
-            className={"font-semibold hover:bg-primary hover:text-white w-full rounded-md md:rounded-full px-5"}
-            size={'sm'}
+            className={
+              "font-semibold hover:bg-primary hover:text-white w-full rounded-md md:rounded-full px-5"
+            }
+            size={"sm"}
+            onClick={() => navigate("/login")}
           >
             Log In
           </Button>

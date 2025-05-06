@@ -8,8 +8,6 @@ import EventCard from "../common/events/EventCard";
 const UpcomingEvents = () => {
   const data = useLoaderData();
 
-  console.log(data);
-
   return (
     <Container className="py-8 md:py-16">
       <Title>Upcoming Events</Title>
