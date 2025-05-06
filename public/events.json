@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Tech Innovators Summit 2025",
+    "thumbnail": "https://i.ibb.co.com/NgXPtnSs/event-1.jpg",
+    "category": "Technology",
+    "date": "2025-06-15",
+    "location": "San Francisco, CA",
+    "entry_fee": "$99",
+    "description": "Join the brightest minds in tech for a day of talks, networking, and hands-on demos."
+  },
+  {
+    "id": 2,
+    "name": "Jazz in the Park",
+    "thumbnail": "https://i.ibb.co.com/qLrhwmps/event-2.jpg",
+    "category": "Music",
+    "date": "2025-07-02",
+    "location": "New Orleans, LA",
+    "entry_fee": "Free",
+    "description": "Enjoy a relaxing evening of live jazz performances under the stars."
+  },
+  {
+    "id": 3,
+    "name": "Startup Pitch Night",
+    "thumbnail": "https://i.ibb.co.com/bghjqPG1/event-3.jpg",
+    "category": "Business",
+    "date": "2025-06-20",
+    "location": "Austin, TX",
+    "entry_fee": "$15",
+    "description": "Watch early-stage startups pitch their ideas to a panel of investors and mentors."
+  },
+  {
+    "id": 4,
+    "name": "Urban Art Walk",
+    "thumbnail": "https://i.ibb.co.com/x8MjV5n9/event-4.jpg",
+    "category": "Art",
+    "date": "2025-05-25",
+    "location": "Brooklyn, NY",
+    "entry_fee": "Free",
+    "description": "Explore city streets transformed into open-air galleries featuring local artists."
+  },
+  {
+    "id": 5,
+    "name": "Food Truck Fiesta",
+    "thumbnail": "https://i.ibb.co.com/KcbGZffr/event-5.jpg",
+    "category": "Food & Drink",
+    "date": "2025-06-10",
+    "location": "Portland, OR",
+    "entry_fee": "$5",
+    "description": "Taste dishes from top food trucks, enjoy music, and hang out with fellow foodies."
+  },
+  {
+    "id": 6,
+    "name": "Mountain Hiking Challenge",
+    "thumbnail": "https://i.ibb.co.com/j9GX9XsQ/event-6.jpg",
+    "category": "Adventure",
+    "date": "2025-08-12",
+    "location": "Denver, CO",
+    "entry_fee": "$20",
+    "description": "Push your limits on a scenic group hike through the Rockies."
+  },
+  {
+    "id": 7,
+    "name": "Photography Masterclass",
+    "thumbnail": "https://i.ibb.co.com/PGQj2p1C/event-7.jpg",
+    "category": "Workshop",
+    "date": "2025-07-18",
+    "location": "Seattle, WA",
+    "entry_fee": "$45",
+    "description": "Learn lighting, composition, and storytelling from a professional photographer."
+  },
+  {
+    "id": 8,
+    "name": "Indie Film Festival",
+    "thumbnail": "https://i.ibb.co.com/WpD6fzJR/event-8.jpg",
+    "category": "Film",
+    "date": "2025-06-30",
+    "location": "Los Angeles, CA",
+    "entry_fee": "$12",
+    "description": "A celebration of independent cinema featuring premieres, Q&As, and workshops."
+  }
+]

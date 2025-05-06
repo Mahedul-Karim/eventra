@@ -41,3 +41,4 @@ export const HERO_SLIDER = [
     buttonLink: "/events",
   },
 ];
+
