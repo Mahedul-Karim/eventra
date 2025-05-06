@@ -16,7 +16,7 @@ const UpcomingEvents = () => {
       <Subtitle>
         Discover more of the activities with our curated event collections.
       </Subtitle>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 lg:gap-6 mt-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 mt-6">
         {data?.length > 0 &&
           data.map((card) => (
             <EventCard

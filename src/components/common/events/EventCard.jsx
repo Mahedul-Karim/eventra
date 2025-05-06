@@ -35,8 +35,8 @@ const EventCard = ({
         </Badge>
       </CardHeader>
       <CardContent className="px-2 xs:px-4 sm:px-6" >
-        <h2 className="xs:text-lg lg:text-xl font-bold text-dark">{name}</h2>
-        <div className="flex flex-col gap-3 mt-2">
+        <h2 className="text-sm xs:text-base sm:text-lg lg:text-xl font-bold text-dark">{name}</h2>
+        <div className="hidden sm:flex flex-col gap-3 mt-2">
           <p className="flex items-center gap-1 text-muted text-xs xs:text-sm">
             <Calendar size={16} />
             {formateDate(date)}
