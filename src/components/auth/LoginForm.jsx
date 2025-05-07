@@ -22,7 +22,6 @@ const LoginForm = () => {
 
   return (
     <>
-      <title>Eventra - Login</title>
       <Card className="border-none shadow-none max-w-[460px] mx-auto">
         <CardHeader>
           <CardTitle className="text-xl text-dark">

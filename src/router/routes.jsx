@@ -2,6 +2,7 @@ import Loader from "@/components/common/Loader";
 import Error from "@/components/error/Error";
 import Root from "@/layout/Root";
 import Login from "@/pages/auth/Login";
+import SignUp from "@/pages/auth/SignUp";
 import EventDetails from "@/pages/EventDetails";
 import Events from "@/pages/Events";
 import Home from "@/pages/Home";
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp />,
       },
     ],
   },

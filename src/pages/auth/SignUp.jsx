@@ -1,16 +1,16 @@
-import LoginForm from "@/components/auth/LoginForm";
+import SignupForm from "@/components/auth/SignupForm";
 import Container from "@/components/common/Container";
 import React from "react";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <main className="bg-background">
-      <title>Eventra - Login</title>
+      <title>Eventra - Create Account</title>
       <Container className="py-8 md:py-16">
-        <LoginForm />
+        <SignupForm />
       </Container>
     </main>
   );
 };
 
-export default Login;
+export default SignUp;
