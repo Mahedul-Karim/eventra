@@ -12,3 +12,11 @@ export const formateDate = (date) => {
     year: "numeric",
   });
 };
+
+export function isValidPassword(password) {
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasLowercase = /[a-z]/.test(password);
+  const isLongEnough = password.length >= 6;
+
+  return hasUppercase && hasLowercase && isLongEnough;
+}

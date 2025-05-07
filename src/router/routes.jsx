@@ -6,6 +6,7 @@ import SignUp from "@/pages/auth/SignUp";
 import EventDetails from "@/pages/EventDetails";
 import Events from "@/pages/Events";
 import Home from "@/pages/Home";
+import Profile from "@/pages/users/Profile";
 import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <SignUp />,
+      },
+      {
+        path: "/my-profile",
+        element: <Profile />,
       },
     ],
   },

@@ -22,17 +22,17 @@ const NavActions = ({ className = "", closeOnClick = false }) => {
         <>
           <TooltipProvider>
             <Tooltip>
-              <TooltipTrigger asChild>
-                <SheetCloseWrapper clickOnClose={closeOnClick}>
-                  <Link to="/">
+              <SheetCloseWrapper clickOnClose={closeOnClick}>
+                <TooltipTrigger asChild>
+                  <Link to="/my-profile">
                     <Avatar className="size-10">
                       <AvatarImage src="https://github.com/shadcn.png" />
                       <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                   </Link>
-                </SheetCloseWrapper>
-              </TooltipTrigger>
-              <TooltipContent className="bg-primary/10 text-primary">
+                </TooltipTrigger>
+              </SheetCloseWrapper>
+              <TooltipContent>
                 <p>Add to library</p>
               </TooltipContent>
             </Tooltip>
@@ -50,9 +50,7 @@ const NavActions = ({ className = "", closeOnClick = false }) => {
       ) : (
         <SheetCloseWrapper clickOnClose={closeOnClick}>
           <Button
-            className={
-              "font-semibold w-full rounded-md md:rounded-full px-5"
-            }
+            className={"font-semibold w-full rounded-md md:rounded-full px-5"}
             size={"sm"}
             onClick={() => navigate("/login")}
           >
