@@ -50,9 +50,8 @@ const NavActions = ({ className = "", closeOnClick = false }) => {
       ) : (
         <SheetCloseWrapper clickOnClose={closeOnClick}>
           <Button
-            variant="outline"
             className={
-              "font-semibold hover:bg-primary hover:text-white w-full rounded-md md:rounded-full px-5"
+              "font-semibold w-full rounded-md md:rounded-full px-5"
             }
             size={"sm"}
             onClick={() => navigate("/login")}
