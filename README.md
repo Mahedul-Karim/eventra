@@ -1,12 +1,23 @@
-# React + Vite
+# Eventra
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
 
-Currently, two official plugins are available:
+Eventra is a platform designed to get all events happening near you in a single place
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live URL
 
-## Expanding the ESLint configuration
+https://eventra420.netlify.app/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Key Features
+
+* **Clear Branding:** Displays a consistent logo and brand name.
+* **Navigation:** Provides a clickable logo that likely navigates the user to the homepage ("/").
+* **Visually Appealing:** Integrates a logo image and styled text for the brand name.
+* **Responsive Styling:** Uses Tailwind CSS classes for flexible and responsive layout and typography.
+* **Authentication:** Added firebase to handle user authentication securely and protect user data
+
+## NPM Packages Used
+
+* **react:** The core React library for building user interfaces.
+* **react-router:** For handling navigation within the application using the `<Link>` component.
+* **SwiperJS:** For adding an visually appealing slider at the home page
