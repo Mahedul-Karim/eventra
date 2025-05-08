@@ -15,9 +15,12 @@ import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "@/config/firebase.config";
+import { useStore } from "@/context/Context";
 
 const LoginForm = () => {
   const [type, setType] = useState("password");
+
+  const { setUserEmail } = useStore();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -68,7 +71,10 @@ const LoginForm = () => {
                 placeholder="Email Address"
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setUserEmail(e.target.value);
+                }}
               />
             </div>
             <div className="space-y-2">
@@ -95,7 +101,14 @@ const LoginForm = () => {
                   )}
                 </button>
               </div>
+              <Link
+                to="/forget-password"
+                className="text-xs font-medium text-primary text-right block "
+              >
+                Forget Password
+              </Link>
             </div>
+
             <Button className="w-full h-10 font-semibold" disabled={isLoading}>
               Log In
             </Button>

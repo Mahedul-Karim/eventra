@@ -1,6 +1,7 @@
 import Loader from "@/components/common/Loader";
 import Error from "@/components/error/Error";
 import Root from "@/layout/Root";
+import ForgetPassword from "@/pages/auth/ForgetPassword";
 import Login from "@/pages/auth/Login";
 import SignUp from "@/pages/auth/SignUp";
 import EventDetails from "@/pages/EventDetails";
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       {
         path: "/my-profile",
         element: <Profile />,
+      },
+      {
+        path: "/forget-password",
+        element: <ForgetPassword />,
       },
     ],
   },
