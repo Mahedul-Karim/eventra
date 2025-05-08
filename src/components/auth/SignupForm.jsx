@@ -11,13 +11,56 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Eye, EyeOff } from "lucide-react";
 import { Button } from "../ui/button";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { toast } from "sonner";
+import { isValidPassword } from "@/lib/utils";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "@/config/firebase.config";
 
 const SignupForm = () => {
   const [type, setType] = useState("password");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isStrongPassword = isValidPassword(password);
+
+    if (!isStrongPassword) {
+      return toast.error(
+        "Password must contain an uppercase letter, a lowercase letter and must be minimum of 6 character"
+      );
+    }
+
+    try {
+      setIsLoading(true);
+
+      const newUser = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+
+      await updateProfile(newUser.user, {
+        displayName: name,
+        photoURL: photoUrl ? photoUrl : "",
+      });
+
+      toast.success("User created successfully!");
+
+      navigate("/");
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -32,20 +75,40 @@ const SignupForm = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label className="text-dark">Name:</Label>
-            <Input placeholder="Your Name" type="text" />
+            <Input
+              placeholder="Your Name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
           <div className="space-y-2">
             <Label className="text-dark">Email:</Label>
-            <Input placeholder="Your Email" type="email" />
+            <Input
+              placeholder="Your Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div className="space-y-2">
             <Label className="text-dark">Photo URL:</Label>
-            <Input placeholder="A link of your image" type="email" />
+            <Input
+              placeholder="A link of your image"
+              type="text"
+              value={photoUrl}
+              onChange={(e) => setPhotoUrl(e.target.value)}
+            />
           </div>
           <div className="space-y-2">
             <Label className="text-dark">Password:</Label>
             <div className="relative">
-              <Input placeholder="Your Password" type={type} />
+              <Input
+                placeholder="Your Password"
+                type={type}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <button
                 className="absolute right-4 cursor-pointer top-[50%] -translate-y-[50%]"
                 type="button"
@@ -62,7 +125,9 @@ const SignupForm = () => {
               </button>
             </div>
           </div>
-          <Button className="w-full h-10 font-semibold">Sign Up</Button>
+          <Button className="w-full h-10 font-semibold" disabled={isLoading}>
+            Sign Up
+          </Button>
         </form>
       </CardContent>
       <CardFooter className="flex-col">
