@@ -32,6 +32,15 @@ export const router = createBrowserRouter([
       {
         path: "/events",
         element: <Events />,
+        loader: async () => {
+          const res = await fetch("/events.json");
+          return res;
+        },
+        hydrateFallbackElement: (
+          <div className="h-[100vh] flex items-center justify-center">
+            <Loader />
+          </div>
+        ),
       },
 
       {

@@ -5,11 +5,6 @@ import ProtectedRoutes from "@/router/ProtectedRoutes";
 import React from "react";
 
 const Profile = () => {
-
-
-
- 
-
   return (
     <ProtectedRoutes>
       <main className="bg-background py-8 md:py-16 ">
