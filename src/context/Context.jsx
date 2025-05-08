@@ -7,6 +7,7 @@ const Context = createContext();
 const Provider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [updatedUser, setUpdatedUser] = useState(null);
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -17,7 +18,14 @@ const Provider = ({ children }) => {
     return () => unSubscribe();
   }, []);
 
-  return <Context value={{ user, setUser, isLoading }}>{children}</Context>;
+  useEffect(() => {
+    if (!updatedUser) return;
+
+    setUser(updatedUser);
+    setUpdatedUser(null);
+  }, [updatedUser]);
+
+  return <Context value={{ user, setUser, isLoading,setUpdatedUser }}>{children}</Context>;
 };
 
 export const useStore = () => {

@@ -16,6 +16,7 @@ const Info = () => {
   const { user } = useStore();
   
 
+
   return (
     <Card className="bg-white shadow-none border-none">
       <CardHeader>

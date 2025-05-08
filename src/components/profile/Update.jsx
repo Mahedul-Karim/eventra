@@ -16,7 +16,7 @@ import { updateProfile } from "firebase/auth";
 import { auth } from "@/config/firebase.config";
 
 const Update = () => {
-  const { user, setUser } = useStore();
+  const { user, setUpdatedUser } = useStore();
 
   const [name, setName] = useState(user?.displayName || "");
   const [photoUrl, setPhotoUrl] = useState(user?.photoURL || "");
@@ -37,7 +37,7 @@ const Update = () => {
 
       await auth.currentUser.reload();
      
-      setUser(auth.currentUser);
+      setUpdatedUser(auth.currentUser);
 
       toast.success("User updated successfully!");
     } catch (err) {
