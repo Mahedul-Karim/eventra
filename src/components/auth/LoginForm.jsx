@@ -11,13 +11,33 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Eye, EyeOff } from "lucide-react";
 import { Button } from "../ui/button";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { toast } from "sonner";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/config/firebase.config";
 
 const LoginForm = () => {
   const [type, setType] = useState("password");
 
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      setIsLoading(true);
+
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/");
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -35,12 +55,22 @@ const LoginForm = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label className="text-dark">Email:</Label>
-              <Input placeholder="Email Address" type="email" />
+              <Input
+                placeholder="Email Address"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="space-y-2">
               <Label className="text-dark">Password:</Label>
               <div className="relative">
-                <Input placeholder="Your Password" type={type} />
+                <Input
+                  placeholder="Your Password"
+                  type={type}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
                 <button
                   className="absolute right-4 cursor-pointer top-[50%] -translate-y-[50%]"
                   type="button"
@@ -57,7 +87,9 @@ const LoginForm = () => {
                 </button>
               </div>
             </div>
-            <Button className="w-full h-10 font-semibold">Log In</Button>
+            <Button className="w-full h-10 font-semibold" disabled={isLoading}>
+              Log In
+            </Button>
           </form>
         </CardContent>
         <CardFooter className="flex-col">
