@@ -14,8 +14,12 @@ import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import { isValidPassword } from "@/lib/utils";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "@/config/firebase.config";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
+import { auth, googleProvider } from "@/config/firebase.config";
 
 const SignupForm = () => {
   const [type, setType] = useState("password");
@@ -26,6 +30,15 @@ const SignupForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const googleSignIn = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,7 +59,6 @@ const SignupForm = () => {
         email,
         password
       );
-
 
       await updateProfile(newUser.user, {
         displayName: name,
@@ -140,6 +152,7 @@ const SignupForm = () => {
           <Button
             variant="outline"
             className="bg-transparent w-full border-border flex items-center gap-2 text-dark"
+            onClick={googleSignIn}
           >
             <img src="/assets/google.svg" alt="" className="size-5" />
             Google

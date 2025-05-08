@@ -13,8 +13,8 @@ import { Eye, EyeOff } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/config/firebase.config";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "@/config/firebase.config";
 
 const LoginForm = () => {
   const [type, setType] = useState("password");
@@ -24,6 +24,15 @@ const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const googleSignIn = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -102,6 +111,7 @@ const LoginForm = () => {
             <Button
               variant="outline"
               className="bg-transparent w-full border-border flex items-center gap-2 text-dark"
+              onClick={googleSignIn}
             >
               <img src="/assets/google.svg" alt="" className="size-5" />
               Google
